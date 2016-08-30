@@ -14,7 +14,7 @@ f = urllib.urlopen(tract_link)
 tract_str = f.read()
 
 # Set start time-date and comaplint type substring for 311 complaint data retrievel (only returning DEP handled complaints)
-timeanddate = '2016-07-18T12:00:00'
+timeanddate = '2015-08-29T12:00:00'
 searchstr = 'Noise'
 
 # API url to retrieve 311 complaint data in JSON format
@@ -31,7 +31,7 @@ complaint_data = json.loads(noise_str)
 
 print '311 complaints returned: ' + str(len(complaint_data))
 
-# Output CSV setup
+# Output tract level CSV setup
 filename = 'tract_data.csv'
 out_file = open(filename, 'w')
 out_file.write('tract_num,tract_code,boro_code,boro_string,nta_code,nta_string,puma_code,count')
@@ -50,12 +50,12 @@ for i in tract_data['features']:
 		if len(poly) == 1:
 			for j in poly:
 				bbpath = mplPath.Path(j)
-				if bbpath.contains_point((complaint_loc[1], complaint_loc[0])):
+				if bbpath.contains_point((float(complaint_loc[1]), float(complaint_loc[0])):
 					complaint_count += 1
 					
 		else:
 			bbpath = mplPath.Path(poly)
-			if bbpath.contains_point((complaint_loc[1], complaint_loc[0])):
+			if bbpath.contains_point((float(complaint_loc[1]), float(complaint_loc[0])):
 				complaint_count += 1
 				
 	# Write out row of CSV out file with census tract data including count of complaint within each census tract
