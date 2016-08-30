@@ -55,13 +55,13 @@ def writecsvline(complaint, i):
 		complaint['status'].replace(",", "") + ','+ \
 		complaint['latitude'] + ','+ \
 		complaint['longitude'] + ',' + \
-		i['properties']['CTLabel'] + ','+ \
-		i['properties']['BoroCT2010'] + ',' + \
-		i['properties']['BoroCode'] + ',' + \
-		i['properties']['BoroName'] + ',' + \
-		i['properties']['NTACode'] + ',' + \
-		i['properties']['NTAName'] + ',' + \
-		i['properties']['PUMA'])
+		i['properties']['CTLabel'].replace(",", "") + ','+ \
+		i['properties']['BoroCT2010'].replace(",", "") + ',' + \
+		i['properties']['BoroCode'].replace(",", "") + ',' + \
+		i['properties']['BoroName'].replace(",", "") + ',' + \
+		i['properties']['NTACode'].replace(",", "") + ',' + \
+		i['properties']['NTAName'].replace(",", "") + ',' + \
+		i['properties']['PUMA'].replace(",", ""))
 	out_file.write('\n')
 
 for complaint in complaint_data:
