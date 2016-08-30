@@ -50,12 +50,12 @@ for i in tract_data['features']:
 		if len(poly) == 1:
 			for j in poly:
 				bbpath = mplPath.Path(j)
-				if bbpath.contains_point((float(complaint_loc[1]), float(complaint_loc[0])):
+				if bbpath.contains_point((float(complaint_loc[1]), float(complaint_loc[0]))):
 					complaint_count += 1
 					
 		else:
 			bbpath = mplPath.Path(poly)
-			if bbpath.contains_point((float(complaint_loc[1]), float(complaint_loc[0])):
+			if bbpath.contains_point((float(complaint_loc[1]), float(complaint_loc[0]))):
 				complaint_count += 1
 				
 	# Write out row of CSV out file with census tract data including count of complaint within each census tract
