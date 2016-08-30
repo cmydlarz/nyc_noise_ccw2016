@@ -44,25 +44,28 @@ total_complaints = len(complaint_data)
 complaint_count = 0
 
 def writecsvline(complaint, i):
-	out_file.write(complaint['created_date'].replace(",", "") + ','+ \
-		complaint['agency'].replace(",", "") + ','+ \
-		complaint['agency_name'].replace(",", "") + ','+ \
-		complaint['complaint_type'].replace(",", "") + ','+ \
-		complaint['descriptor'].replace(",", "") + ','+ \
-		complaint['incident_zip'].replace(",", "") + ','+ \
-		complaint['city'].replace(",", "") + ','+ \
-		complaint['borough'].replace(",", "") + ','+ \
-		complaint['status'].replace(",", "") + ','+ \
-		complaint['latitude'] + ','+ \
-		complaint['longitude'] + ',' + \
-		i['properties']['CTLabel'].replace(",", "") + ','+ \
-		i['properties']['BoroCT2010'].replace(",", "") + ',' + \
-		i['properties']['BoroCode'].replace(",", "") + ',' + \
-		i['properties']['BoroName'].replace(",", "") + ',' + \
-		i['properties']['NTACode'].replace(",", "") + ',' + \
-		i['properties']['NTAName'].replace(",", "") + ',' + \
-		i['properties']['PUMA'].replace(",", ""))
-	out_file.write('\n')
+	try:
+		out_file.write(complaint['created_date'].replace(",", "") + ','+ \
+			complaint['agency'].replace(",", "") + ','+ \
+			complaint['agency_name'].replace(",", "") + ','+ \
+			complaint['complaint_type'].replace(",", "") + ','+ \
+			complaint['descriptor'].replace(",", "") + ','+ \
+			complaint['incident_zip'].replace(",", "") + ','+ \
+			complaint['city'].replace(",", "") + ','+ \
+			complaint['borough'].replace(",", "") + ','+ \
+			complaint['status'].replace(",", "") + ','+ \
+			complaint['latitude'] + ','+ \
+			complaint['longitude'] + ',' + \
+			i['properties']['CTLabel'].replace(",", "") + ','+ \
+			i['properties']['BoroCT2010'].replace(",", "") + ',' + \
+			i['properties']['BoroCode'].replace(",", "") + ',' + \
+			i['properties']['BoroName'].replace(",", "") + ',' + \
+			i['properties']['NTACode'].replace(",", "") + ',' + \
+			i['properties']['NTAName'].replace(",", "") + ',' + \
+			i['properties']['PUMA'].replace(",", ""))
+		out_file.write('\n')
+	except exception:
+		return
 
 for complaint in complaint_data:
 	complaint_loc = [complaint['latitude'], complaint['longitude']]
