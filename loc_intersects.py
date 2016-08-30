@@ -4,8 +4,6 @@ import urllib
 import json
 import sys
 
-# input_file = sys.argv[1]
-
 # API url to retrieve shapefile data for census tracts in JSON format
 tract_link = 'http://services5.arcgis.com/GfwWNkhOj9bNBqoJ/arcgis/rest/services/nyct2010/FeatureServer/0/query?where=1=1&outFields=*&outSR=4326&f=geojson'
 
