@@ -64,7 +64,7 @@ def writecsvline(complaint, i):
 			i['properties']['NTAName'].replace(",", "") + ',' + \
 			i['properties']['PUMA'].replace(",", ""))
 		out_file.write('\n')
-	except exception:
+	except:
 		return
 
 for complaint in complaint_data:
